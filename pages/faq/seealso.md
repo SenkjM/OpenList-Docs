@@ -7,7 +7,7 @@ icon: iconfont icon-state
 top: 1
 # A page can have multiple categories
 categories:
-  - FAQ
+  - faq
 # A page can have multiple tags
 ---
 
