@@ -14,11 +14,11 @@ const DOCS_BUILT_DATE = new Date().toISOString()
 const SITE_URL = process.env.SITE_URL || 'https://example.com'
 const VITE_BASE = process.env.VITE_BASE || '/'
 
-const safelist = ['i-ri-home-line', 'i-ri-github-line']
+const safelist = ['i-ri-home-line', 'i-ri-github-line', 'i-ri-arrow-up-line']
 
 export default defineValaxyConfig<PressTheme.Config>({
   siteConfig: {
-    title: 'The OpenList Docs',
+    title: 'OpenList Docs',
     url: SITE_URL,
     description: 'Docs site for OpenList',
 
@@ -66,7 +66,7 @@ export default defineValaxyConfig<PressTheme.Config>({
 
   theme: 'press',
   themeConfig: {
-    logo: '/logo.svg',
+    logo: VITE_BASE.endsWith('/') ? `${VITE_BASE}logo.svg` : `/${VITE_BASE}/logo.svg`,
     sidebar: ['guide', 'configuration', 'faq', 'api', 'migration'],
     socialLinks: [{ icon: 'i-ri-github-line', link: 'https://github.com/OpenListTeam/OpenList' }],
     nav: [
@@ -81,10 +81,6 @@ export default defineValaxyConfig<PressTheme.Config>({
       {
         text: 'nav.faq',
         link: '/faq',
-      },
-      {
-        text: 'nav.pricing',
-        link: '/pricing',
       },
       {
         text: 'nav.community.title',
